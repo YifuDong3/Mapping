@@ -17,7 +17,9 @@ pacman::p_load(
   "maptools",
   "plyr",
   "raster",
-  "leaflet"
+  "leaflet",
+  "rmarkdown",
+  "markdown"
 )
 
 ```
@@ -200,8 +202,8 @@ The fourth map is to show the restaurants in 4 districts classified by violation
 
 ```{r,echo=FALSE}
 library(tidycensus)
-
-map4 <- mutate(map1,level=ifelse(ViolLevel=="*",1,ifelse(ViolLevel=="**",3,5)))
+map11 <-  filter(mayorsfoodcourt, CITY=="Allston"|CITY=="Brighton"|CITY=="Fenway"|CITY=="Boston")
+map4 <- mutate(map11,level=ifelse(ViolLevel=="*",1,ifelse(ViolLevel=="**",3,5)))
 #choose 4000 rows of data, since leaflet cannot support too much rows of data.
 map4 <- filter(map4,!(is.na(map4$level)))
 map5 <- map4[1:4000,]
