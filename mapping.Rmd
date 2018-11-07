@@ -128,7 +128,9 @@ We list top 20 restaurants which are inspected most times by The Health Division
 
 From this map, we know that most restaurants in Allston are inspected less than 20 unit times. However, there are 2 restaurants being inspected more than 20 unit times. By using "count" function, we know these two restaurants are "SHANGHAI GATEWAY RESTAURANT", and "GRASSHOPPER VEGETARIAN". 
 
-**We don't know why these two restaurants are inspected more times. So we try to look at their data, we found that "SHANGHAI GATEWAY RESTAURANT" has 814 records of inspections, and about 204 records have the violation status of "Pass", which means the ratio of pass is about 25%. The other restaurant is the same. **
+**We don't know why these two restaurants are inspected more times. So we try to look at their data, we found that "SHANGHAI GATEWAY RESTAURANT" has 481 records of inspections, and about 204 records have the violation status of "Pass", which means the ratio of pass is about 42%. The other restaurant is the same. **
+
+Conversely, we chose one of the green markers randomly, say INBOUND PIZZA & RESTAURANT, and calculated its passing ratio. Then we found that its ratio is : 82/162=51%. 
 
 **So maybe we should to choose those restaurants with green markers on the map.**
 
@@ -183,7 +185,8 @@ Then we find,from the map, that this restaurant is "Au Bon Pain".
 From filtering, we find that "Au Bon Pain" has been inspected for 853 times. And: 
 
 ```{r,echo=FALSE}
-aubonpain <- filter(map2,map2$businessName=="Au Bon Pain"&map2$ViolStatus=="Pass")
+aubonpain <- filter(map2,businessName=="Au Bon Pain"&ViolStatus=="Pass")
+
 ```
 
 it passed 375 times, which means the passing ratio is 375/853=44%. 
